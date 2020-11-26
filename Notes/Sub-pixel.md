@@ -3,8 +3,10 @@
 
 [代码地址](https://github.com/atriumlts/subpixel)
 
-    这篇论文的主要贡献是提出了一种先在low-resolution下进行图像处理，再进行upsampling的方法。此前的深度模型基本是先使用插值方法把LR的图像upsampling到HR空间，再对HR的图像进行卷积等处理，重建细节。处理HR图像会消耗较大的计算资源，而使用这篇文章的方法则可以避免此项处理，在LR空间下完成，从而降低了对资源的要求，是的实时处理成为可能。
+这篇论文的主要贡献是提出了一种先在low-resolution下进行图像处理，再进行upsampling的方法。此前的深度模型基本是先使用插值方法把LR的图像upsampling到HR空间，再对HR的图像进行卷积等处理，重建细节。处理HR图像会消耗较大的计算资源，而使用这篇文章的方法则可以避免此项处理，在LR空间下完成，从而降低了对资源的要求，是的实时处理成为可能。
 ## 模型
+![模型示意](https://github.com/Yuehan717/Video-Super-resolution/blob/main/image/subpixel_model.jpg "subpixel-model")
 
+SISR(Single Image Super-Resolution)的任务是根据从高分辨率
 ## 实验
 ## 不足
