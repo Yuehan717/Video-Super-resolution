@@ -36,6 +36,9 @@
 + 综述
 
 1. [Deep Learning for Image Super-resolution: A Survey](https://ieeexplore.ieee.org/abstract/document/9044873)
++ Classical SISR (Single Image Super-Resolution) Model
+
+1. [(CVPR2017)Enhanced Deep Residual Networks for Single Image Super-Resolution (EDSR)](https://openaccess.thecvf.com/content_cvpr_2017_workshops/w12/html/Lim_Enhanced_Deep_Residual_CVPR_2017_paper.html)
 + Real-time Model
 
 1. [(CVPR2016)Real-Time Single Image and Video Super-Resolution Using an Efficient Sub-Pixel Convolutional Neural Network (Sub-pixel)](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Shi_Real-Time_Single_Image_CVPR_2016_paper.pdf)
