@@ -40,6 +40,7 @@
 
 1. [(CVPR2017)Enhanced Deep Residual Networks for Single Image Super-Resolution (EDSR)](https://github.com/Yuehan717/Video-Super-resolution/blob/main/Notes/EDSR.md)
 + Real-time Model
+2. [(ECCV2018)Image Super-Resolution Using Very Deep Residual Channel Attention Networks (RCAN)](https://github.com/yulunzhang/RCAN)
 
 1. [(CVPR2016)Real-Time Single Image and Video Super-Resolution Using an Efficient Sub-Pixel Convolutional Neural Network (Sub-pixel)](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Shi_Real-Time_Single_Image_CVPR_2016_paper.pdf)
 + Model Targeting Real-world Cases
