@@ -38,8 +38,9 @@
 1. [Deep Learning for Image Super-resolution: A Survey](https://ieeexplore.ieee.org/abstract/document/9044873)
 + Classical SISR (Single Image Super-Resolution) Model
 
-1. [(CVPR2017)Enhanced Deep Residual Networks for Single Image Super-Resolution (EDSR)](https://github.com/Yuehan717/Video-Super-resolution/blob/main/Notes/EDSR.md)
+1. [(CVPR2017)Enhanced Deep Residual Networks for Single Image Super-Resolution (EDSR)](https://github.com/Yuehan717/Video-Super-resolution/blob/main/Notes/EDSR.md) NTIRE2017 Champion
 2. [(ECCV2018)Image Super-Resolution Using Very Deep Residual Channel Attention Networks (RCAN)](https://github.com/yulunzhang/RCAN)
+3. [(CVPR2018)Deep Back-Projection Networks For Super-Resolution (DBPN)](https://openaccess.thecvf.com/content_cvpr_2018/html/Haris_Deep_Back-Projection_Networks_CVPR_2018_paper.html) NTIRE2018 Champion
 + Real-time Model
 
 1. [(CVPR2016)Real-Time Single Image and Video Super-Resolution Using an Efficient Sub-Pixel Convolutional Neural Network (Sub-pixel)](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Shi_Real-Time_Single_Image_CVPR_2016_paper.pdf)
@@ -52,3 +53,4 @@
 + Real-time Model
 
 1. [(CVPR2017)Real-Time Video Super-Resolution with Spatio-Temporal Networks and Motion Compensation (Sub-pixel in video)](https://openaccess.thecvf.com/content_cvpr_2017/html/Caballero_Real-Time_Video_Super-Resolution_CVPR_2017_paper.html)
+2. [(CVPR2019)Recurrent Back-Projection Network for Video Super-Resolution (RBPN)](https://openaccess.thecvf.com/content_CVPR_2019/html/Haris_Recurrent_Back-Projection_Network_for_Video_Super-Resolution_CVPR_2019_paper.html)
