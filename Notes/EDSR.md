@@ -41,3 +41,5 @@ Body是所有超分倍数共用的结构，而pre-process和upsample对每个倍
 Body的深度是80，feature channel采用64。
 ## 实验
 尝试用不同的数据集（包括视频数据集）训练模型。
+代码使用[EDSR-PyTorch](https://github.com/thstkdgus35/EDSR-PyTorch)。这个project整合了多个模型的代码，在这里只训练了EDSR和MDSR的部分。
+在训练MDSR（同时训练多个超分scale）时发现trainer.py里有一个小bug，应该是作者洗了一个TEMP版本最后忘记修改了。原版本只对模型中负责X2放大的参数部分进行了训练。[替换代码](https://github.com/Yuehan717/Video-Super-resolution/blob/main/Code/trainer.py)
