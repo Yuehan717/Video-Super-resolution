@@ -57,29 +57,30 @@
 
 ## NTIRE (New Trends in Image Restoration and Enhancement) CHALLENGE
 ### NTIRE2017
-**SISR**
+**SISR**  
 [NTIRE 2017 Challenge on Single Image Super-Resolution: Dataset and Study](https://openaccess.thecvf.com/content_cvpr_2017_workshops/w12/html/Agustsson_NTIRE_2017_Challenge_CVPR_2017_paper.html)  
 [NTIRE 2017 Challenge on Single Image Super-Resolution: Methods and Results](https://openaccess.thecvf.com/content_cvpr_2017_workshops/w12/html/Timofte_NTIRE_2017_Challenge_CVPR_2017_paper.html)
 ### NTIRE2018
-**SISR**
+**SISR**  
 [NTIRE 2018 Challenge on Single Image Super-Resolution: Methods and Results](https://openaccess.thecvf.com/content_cvpr_2018_workshops/w13/html/Timofte_NTIRE_2018_Challenge_CVPR_2018_paper.html)  
-**Image dehazing**
+**Image dehazing**  
 [NTIRE 2018 Challenge on Image Dehazing: Methods and Results](https://openaccess.thecvf.com/content_cvpr_2018_workshops/w13/html/Ancuti_NTIRE_2018_Challenge_CVPR_2018_paper.html)
 ### NTIRE2019
 2019年设置了更多赛道，方向包括：
-+ **real image SR** (之前使用的数据集都是用特定方法下采样得到的LR图像，在这样的数据集上进行训练的模型不能保证在真实低分辨图像上有好的表现)
++ **real image SR** (之前使用的数据集都是用特定方法下采样得到的LR图像，在这样的数据集上进行训练的模型不能保证在真实低分辨图像上有好的表现)  
 [NTIRE 2019 Challenge on Real Image Super-Resolution: Methods and Results](https://openaccess.thecvf.com/content_CVPRW_2019/html/NTIRE/Cai_NTIRE_2019_Challenge_on_Real_Image_Super-Resolution_Methods_and_Results_CVPRW_2019_paper.html)
-+ **video deblurring and SR**
-[NTIRE 2019 Challenge on Video Deblurring and Super-Resolution: Dataset and Study](https://openaccess.thecvf.com/content_CVPRW_2019/html/NTIRE/Nah_NTIRE_2019_Challenge_on_Video_Deblurring_and_Super-Resolution_Dataset_and_CVPRW_2019_paper.html)
++ **video deblurring and SR**  
+[NTIRE 2019 Challenge on Video Deblurring and Super-Resolution: Dataset and Study](https://openaccess.thecvf.com/content_CVPRW_2019/html/NTIRE/Nah_NTIRE_2019_Challenge_on_Video_Deblurring_and_Super-Resolution_Dataset_and_CVPRW_2019_paper.html)  
 [NTIRE 2019 Challenge on Video Deblurring: Methods and Results](https://openaccess.thecvf.com/content_CVPRW_2019/html/NTIRE/Nah_NTIRE_2019_Challenge_on_Video_Deblurring_Methods_and_Results_CVPRW_2019_paper.html)
-+ **real image denoising**
-[NTIRE 2019 Challenge on Real Image Denoising: Methods and Results](https://openaccess.thecvf.com/content_CVPRW_2019/html/NTIRE/Abdelhamed_NTIRE_2019_Challenge_on_Real_Image_Denoising_Methods_and_Results_CVPRW_2019_paper.html)
++ **real image denoising**  
+[NTIRE 2019 Challenge on Real Image Denoising: Methods and Results](https://openaccess.thecvf.com/content_CVPRW_2019/html/NTIRE/Abdelhamed_NTIRE_2019_Challenge_on_Real_Image_Denoising_Methods_and_Results_CVPRW_2019_paper.html)  
 还有**image enhancement, image colorization, image dehazing**
 ### NTIRE2020
 2020年的赛道更丰富，除了之前已有的real-world图像和视频的超分和deblurring, 还增加了光谱重建，video quality mapping和去摩尔纹。
-+ Super-resolution
-[NTIRE 2020 Challenge on Real-World Image Super-Resolution: Methods and Results](https://openaccess.thecvf.com/content_CVPRW_2020/html/w31/Lugmayr_NTIRE_2020_Challenge_on_Real-World_Image_Super-Resolution_Methods_and_Results_CVPRW_2020_paper.html)  [NTIRE 2020 Challenge on Perceptual Extreme Super-Resolution: Methods and Results](https://openaccess.thecvf.com/content_CVPRW_2020/html/w31/Zhang_NTIRE_2020_Challenge_on_Perceptual_Extreme_Super-Resolution_Methods_and_Results_CVPRW_2020_paper.html) 
-+ Deblurring
++ **Super-resolution**  
+[NTIRE 2020 Challenge on Real-World Image Super-Resolution: Methods and Results](https://openaccess.thecvf.com/content_CVPRW_2020/html/w31/Lugmayr_NTIRE_2020_Challenge_on_Real-World_Image_Super-Resolution_Methods_and_Results_CVPRW_2020_paper.html)   
+[NTIRE 2020 Challenge on Perceptual Extreme Super-Resolution: Methods and Results](https://openaccess.thecvf.com/content_CVPRW_2020/html/w31/Zhang_NTIRE_2020_Challenge_on_Perceptual_Extreme_Super-Resolution_Methods_and_Results_CVPRW_2020_paper.html) 
++ **Deblurring**  
 [NTIRE 2020 Challenge on Image and Video Deblurring](https://openaccess.thecvf.com/content_CVPRW_2020/html/w31/Nah_NTIRE_2020_Challenge_on_Image_and_Video_Deblurring_CVPRW_2020_paper.html)
-+ Demoireing
++ **Demoireing**  
 [NTIRE 2020 Challenge on Image Demoireing: Methods and Results](https://openaccess.thecvf.com/content_CVPRW_2020/html/w31/Yuan_NTIRE_2020_Challenge_on_Image_Demoireing_Methods_and_Results_CVPRW_2020_paper.html)
