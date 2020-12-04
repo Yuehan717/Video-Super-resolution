@@ -13,7 +13,11 @@ among feature channels.
 <img src=https://github.com/Yuehan717/Video-Super-resolution/blob/main/image/RCAN.png width=80%> </img>  
 RCAN包含四个部分：**shallow feature extraction, RIR, upsample, reconstruction**. 第一部分特征提取和最后的重建
 都由一个卷积层构成，upsample可以选择的方法有很多，论文当中没有明确给出，需要看作者给的代码实现。RCAN尽量将处理任务放在RIR
-中，简化模型的其他部分。
+中，简化模型的其他部分。  
++ RIR组成：G个RG（Residual Group）+ conv，带LSC。
++ RG组成：B个RCAB + conv，带SSC。
++ RCAB组成：conv + ReLU + conv + CA (channel attention)
++ CA组成：Global Pooling + conv + ReLU + conv + sigmoid gate
 ### Residual in Residual (RIR)
 RIR结构由G个**residual group (RG)** 组成。RIR的首尾由long skip connection（LSC）连接。LSC可以减轻模型向前传递低频信息的负担，同时让RIR能学习到粗略的残差信息。  
 每一个RG有B个RCAB和末尾的一个卷积层组成。RG的首尾由short skip connection（SSC）连接。SSC让网络的主要部分关注残差信息。  
@@ -32,7 +36,6 @@ with a local receptive field. Consequently, the output after convolution is unab
 输入到WU中，WU也是一个卷积层，负责channel-upscaling，最后的f是sigmoid函数。经过这一系列的处理得到了s，s和最开始的输入相乘，对输入的各个通道进行rescale。
 > WD和WU进行的down-scaling和upscaling目的是什么？
 
-
 ### Residual Channel Attention Block (RCAB)
 <img src=https://github.com/Yuehan717/Video-Super-resolution/blob/main/image/RCAB.png width=60%></img>  
 图中虚线框内就是上一部分所讲的channel attention，除此之外RCAB首先用两个卷积层对输入进行处理，然后在处理过的特征图上提取channel statistic，左后获得的这个值
@@ -41,5 +44,29 @@ with a local receptive field. Consequently, the output after convolution is unab
 用channel attention替代scaling层考虑了各个通道之间的相互关系。
 > 原文：Although the channel-wise feature rescaling is introduced to train a very wide network, the interdependencies among channels are not considered in EDSR.
 但是这里的*interdependencies*具体该怎么理解？
+
+作者对**CA**的灵感来源于[Squeeze-and-Excitation Networks](https://openaccess.thecvf.com/content_cvpr_2018/html/Hu_Squeeze-and-Excitation_Networks_CVPR_2018_paper.html)，这篇文章
+对CA的机制有比较详细的讲解，前面提出的问题也基本能在这篇文章里找到答案。作者很好地把这篇文章里的机制运用在了SR任务上。
+### Sqeeze and Excitation Networks
+卷积神经网络（CNN）的核心是卷积运算，它使网络能够通过在每一层的局部感受野(receptive field)内融合空间和通道信息来构造信息特征。已经有很多研究探讨了空间信息的问题，这篇论文考虑通道间的关系。总的来说，SENet想要使得包含更重要特征的通道获得更多计算资源，同时，在考虑什么是”更重要的特征通道“时，SENet考虑到了通道之间的依赖关系。  
+<img src=https://github.com/Yuehan717/Video-Super-resolution/blob/main/image/SEB.png width=80%></img>  
+SENet中最重要的是SE块（Squeeze-and-Excitation Block），它完成了根据不同通道的重要性对其特征数值进行放缩的任务(feature recalibration)，RCAN中的RCAB实际上就是SE块的应用。
++ **Ftr:** Transformation模块，由卷积层组成，作用是提取和处理特征，经过这个模块得到的矩阵U： H * W * C。
+> 卷积层使用的过滤器（filter）表示为V=[v1,v2,v3,...,vC], 其中C是filter的个数，vc表示第c个filter的参数。卷积层的输出表示为U=[u1,u2,u3,...,uC], uc由vc和输入X相乘计算得来。vc和X相乘实际上是vc的每个维和其对应的输入通道值相乘，最后对所有通道的结果求和。因为求和操作，可以看作Ftr隐式地考虑了通道之间的相互关系。但是这种方式不灵活，作者进一步设计了如何显示地考虑通道间的相互关系。
++ **Fsq：** squeeze模块，完成全局信息嵌入。特征图的单个数值元素受到**感受野（receptive field)** 大小的限制，无法描述全局信息，基于该数值的计算也只能表示其感受野内的特征。而Fsq想要对每一个通道都产生一个可以描述**全局**空间信息的**channel descriptor**, 描述器可以代表对应通道的重要性，所以这里使用了global average pooling作为Fsq。
+> 全局平均池化对每一个通道计算一个该通道上所有特征值的平均值。Fsq可以有其它选择，这里使用了虽简单的方法。
++ **Fex：** Excitation模块。对Ftr提取到的特征进行自适应性缩放，这一部分也对应了RCAN中的**channel attention**。通过Fsq已经获得了对每个通道重要性的描述，但是这个描述只是使用平均池化得到的，不是学习得来的，而且没有显示地考虑通道之间的相互关系。这些问题由Fex解决。因此在设计Fex时，SE遵循两个设计原则，RCAN也借用了Fex的设计原则。
+> 首先，Fex必须足够灵活，它需要能够学习到通道之间的非线性关系。  
+> 其次，学习到的关系需要是非互斥的，即允许多个通道的重要性被强调。  
+
+为了满足以上两个条件，SE使用了一个简单的sigmoid激活的门机制。
+<img src=https://github.com/Yuehan717/Video-Super-resolution/blob/main/image/Fex-eq.png width=50%> </img>  
+**delta：** ReLU函数，引入非线性因素  
+**W1：** 全连接层（FC），比例为r的降维层。  
+**W2：** 全连接层，比例为r的升维层。  
+**sigma：** Sigmoid函数。
+> 这里的门机制参考LSTM里的门控机制，在最外层使用了sigmoid函数。ReLU函数使得模块可以学习非线性关系。对于两个全连接层，论文里解释是在非线性函数两端形成bottle neck，我还没有理解这句话。个人理解是为了显式考虑相互关系，才使用了这种降维后再升维的方法。RCAN里把这两个全连接层替换为两个卷积层。
+
+Fex处理得到的向量用于对每个通道进行缩放，这也是SE块的最后一步。
 ## 代码&实验
 ## 对比
