@@ -3,6 +3,7 @@
 可以搭建非常深的SISR模型，效果也有比较大的提升。论文关注的另外一个问题是，低分辨率的输入图像和他们的
 feature map里面包含丰富的low-frequency信息，而模型平等处理这些来自不同通道的特征，这会阻碍网络的表示能力。
 RCAN提出了一种通道注意力机制（channel attention）来解决这个问题。
+> [什么是图像的频率?](https://blog.csdn.net/qq_32642107/article/details/87924042)
 ## 主要贡献
 论文提出了一个可以完成高精度图像超分的深度网络（RCAN）。
 + Proposed residual in residual structure to construct very deep trainable networks.
