@@ -32,7 +32,7 @@
 ### 其它重要方法
 #### 光流法（Optical Flow）
 #### 运动补偿（Motion Compensation）
-## 图像超分辨率
+## SISR (Single Image Super-Resolution)
 + 综述
 
 1. [Deep Learning for Image Super-resolution: A Survey](https://ieeexplore.ieee.org/abstract/document/9044873)
@@ -46,7 +46,7 @@
 1. [(CVPR2016)Real-Time Single Image and Video Super-Resolution Using an Efficient Sub-Pixel Convolutional Neural Network (Sub-pixel)](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Shi_Real-Time_Single_Image_CVPR_2016_paper.pdf)
 + Model Targeting Real-world Cases
 
-## 视频超分辨率
+## VSR (Considering temporal relationship)
 + 综述
 
 1. [Video Super Resolution Based on Deep Learning: A comprehensive survey](https://arxiv.org/abs/2007.12928)
